@@ -12,7 +12,7 @@ if (count($_POST) > 0) {
         die("MySQL connection failed" . mysql_error());
     }
 
-    $db_connected = mysql_select_db("tracker", $connected);
+    $db_connected = mysql_select_db("$Database_Name", $connected);
     if (!$db_connected) {
         die("Database connection failed" . mysql_error());
     }
