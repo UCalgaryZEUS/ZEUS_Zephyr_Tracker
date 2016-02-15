@@ -170,14 +170,14 @@ if ($connected->connect_errno > 0) {
 	</script>
 
 	<style>
-body, html {
-  height: 100%;
-  width: 100%;
-}
+	body, html {
+	  height: 100%;
+	  width: 100%;
+	}
 
-div#content {
-  width: 100%; height: 100%;
-}
+	div#content {
+	  width: 100%; height: 100%;
+	}
 	#view-source {
 	  position: fixed;
 	  display: block;
@@ -195,22 +195,15 @@ div#content {
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Home</span>
           <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
+            <li class="mdl-menu__item" id="reset">Reset To Origin</li>
+            <li class="mdl-menu__item">Reset To Last Point</li>
+            <li class="mdl-menu__item">Reset To X Point</li>
+            <li class="mdl-menu__item">Display Only Mechanical Info</li>
+            <li class="mdl-menu__item">Display Only Electrical Info</li>
           </ul>
         </div>
       </header>
@@ -218,7 +211,7 @@ div#content {
         <header class="demo-drawer-header">
           <img src="images/user.jpg" class="demo-avatar">
           <div class="demo-avatar-dropdown">
-            <span>dani@aqt.com</span>
+            <span>indra-test</span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
               <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -237,12 +230,10 @@ div#content {
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>Login</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
 	  </div>
 	  <main class="mdl-layout__content mdl-color--white-100">
-		<div id="map_canvas" style="width: 100%; height:500px;"></div>
-		<input type="button" id="reset" value="Reset to origin"></input>
+		<div id="map_canvas" style="width: 100%; height:876px;"></div>
 	  </main>
     </div>
     <script src="material.min.js"></script>
