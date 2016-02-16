@@ -223,7 +223,9 @@ if ($connected->connect_errno > 0) {
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">User Control Panel</li>
+			<li class="mdl-menu__item">
+				<a class="mdl-navigation__link" href="usercp.php">User Control Panel</a>
+			</li>
             </ul>
 			<?php
 			} 
@@ -231,7 +233,7 @@ if ($connected->connect_errno > 0) {
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
           <a class="mdl-navigation__link" href="about.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">motorcycle</i>About</a>
 		  <a class="mdl-navigation__link" href="allraces.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">list</i>All Races</a>
 	<?php
