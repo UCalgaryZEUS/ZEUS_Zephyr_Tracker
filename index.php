@@ -2,7 +2,7 @@
 <?php
 include 'config.php';
 ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 'On'); 
+ini_set('display_errors', 'On');
 session_start();
 
 $data_array = array();
@@ -62,7 +62,7 @@ if ($connected->connect_errno > 0) {
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
@@ -73,7 +73,7 @@ if ($connected->connect_errno > 0) {
 		(function() {
 			// data points
 			// [name, latitude, longitude, altitude, time, velocity, acceleration]
-			var markerData = <?php echo json_encode($data_array) ?>; 
+			var markerData = <?php echo json_encode($data_array) ?>;
 			console.log(markerData);
 
 			console.log(markerData[0][1]);
@@ -91,23 +91,23 @@ if ($connected->connect_errno > 0) {
 			// Modify marker point appearance
 			var pinIcon = new google.maps.MarkerImage(
 					"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFFF00",
-					null, 
+					null,
 					null,
 					null,
 					new google.maps.Size(18, 30)
-					);  
+					);
 
 			var pinIconStart = new google.maps.MarkerImage(
 					"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|00FF00",
-					null, 
+					null,
 					null,
 					null,
 					new google.maps.Size(18, 30)
-					); 
+					);
 
 			var pinIconLast = new google.maps.MarkerImage(
 					"http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000",
-					null, 
+					null,
 					null,
 					null,
 					new google.maps.Size(18, 30)
@@ -142,7 +142,7 @@ if ($connected->connect_errno > 0) {
 								'<br>Altitude: ' + markerData[i]["altitude"] +
 								'<br>Accelertaion: ' + markerData[i]["acceleration"] +
 								'<br>Time: ' + markerData[i]["time"] +
-								'<br>Velocity: ' + markerData[i]["velocity"] 
+								'<br>Velocity: ' + markerData[i]["velocity"]
 						});
 						infowindow.open(map, marker);
 					});
@@ -212,7 +212,7 @@ if ($connected->connect_errno > 0) {
           <h6>ZEPHYR TRACKER</h6>
           <div class="demo-avatar-dropdown">
 			<span>
-			<?php 
+			<?php
 			if (!empty($_SESSION["username"])) {
 				echo $_SESSION["username"];
 			?>
@@ -228,7 +228,7 @@ if ($connected->connect_errno > 0) {
 			</li>
             </ul>
 			<?php
-			} 
+			}
 			?>
           </div>
         </header>
@@ -255,6 +255,6 @@ if ($connected->connect_errno > 0) {
 		<div id="map_canvas" style="width: 100%; height:876px;"></div>
 	  </main>
     </div>
-    <script src="material.min.js"></script>
+    <script src="material.js"></script>
   </body>
 </html>

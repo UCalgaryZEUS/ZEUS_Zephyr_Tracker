@@ -2,7 +2,7 @@
 <?php
 include 'config.php';
 ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 'On'); 
+ini_set('display_errors', 'On');
 session_start();
 ?>
 
@@ -37,7 +37,7 @@ session_start();
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
@@ -75,7 +75,7 @@ session_start();
           <h6>ZEPHYR TRACKER</h6>
           <div class="demo-avatar-dropdown">
 			<span>
-			<?php 
+			<?php
 			if (!empty($_SESSION["username"])) {
 				echo $_SESSION["username"];
 			?>
@@ -91,7 +91,7 @@ session_start();
 			</li>
             </ul>
 			<?php
-			} 
+			}
 			?>
           </div>
         </header>
@@ -118,7 +118,7 @@ session_start();
 			<table style="width:93%">
 			  <tr>
 				<th>Race Name</th>
-				<th>Location</th>		
+				<th>Location</th>
 				<th>Description</th>
 			  </tr>
 			<?php
@@ -126,13 +126,13 @@ session_start();
 			if ($connected->connect_errno > 0) {
 				die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
 			}
-			
-			$result = $connected->prepare("SELECT Race.raceID, Race.racename, Race.location, Race.description From Race ORDER BY raceID DESC"); 
+
+			$result = $connected->prepare("SELECT Race.raceID, Race.racename, Race.location, Race.description From Race ORDER BY raceID DESC");
 
 			$result->execute();
 			$result->bind_result($raceID, $racename, $location, $description);
 			while ($result->fetch()) {
-			?>	
+			?>
 				<tr>
 				<td><a href="racedetails.php?ID=<?php echo $raceID ?>"><?php echo $racename ?></a></td>
 				<td><?php echo $location ?></td>
@@ -144,6 +144,6 @@ session_start();
 			</table>
 	  </main>
     </div>
-    <script src="material.min.js"></script>
+    <script src="material.js"></script>
   </body>
 </html>
