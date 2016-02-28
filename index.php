@@ -152,9 +152,9 @@ if ($connected->connect_errno > 0) {
 			// Initialize travel path properties
 			var pathProperties=new google.maps.Polyline({
 				path:travelPath,
-				strokeColor:"#0000FF",
+				strokeColor:"#F26722",
 				strokeOpacity:0.8,
-				strokeWeight:2
+				strokeWeight:4
 			});
 			console.log(pathProperties);
 			pathProperties.setMap(map);
@@ -252,7 +252,7 @@ if ($connected->connect_errno > 0) {
         </nav>
 	  </div>
 	  <main class="mdl-layout__content mdl-color--white-100">
-		<div id="map_canvas" style="width: 100%; height:876px;"></div>
+		<div id="map_canvas" style="width: 100%; height: 100%;"></div>
 	  </main>
     </div>
     <script src="material.js"></script>
