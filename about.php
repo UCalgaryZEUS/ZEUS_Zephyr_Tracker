@@ -2,7 +2,7 @@
 <?php
 include 'config.php';
 ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 'On'); 
+ini_set('display_errors', 'On');
 session_start();
 ?>
 
@@ -28,7 +28,7 @@ session_start();
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
 
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/zeuslogo.ico">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -37,7 +37,7 @@ session_start();
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
@@ -75,7 +75,7 @@ session_start();
           <h6>ZEPHYR TRACKER</h6>
           <div class="demo-avatar-dropdown">
 			<span>
-			<?php 
+			<?php
 			if (!empty($_SESSION["username"])) {
 				echo $_SESSION["username"];
 			?>
@@ -91,7 +91,7 @@ session_start();
 			</li>
             </ul>
 			<?php
-			} 
+			}
 			?>
           </div>
         </header>
@@ -118,6 +118,6 @@ session_start();
 		<body>TODO: What do we even do?</body>
 	  </main>
     </div>
-    <script src="material.min.js"></script>
+    <script src="material.js"></script>
   </body>
 </html>
