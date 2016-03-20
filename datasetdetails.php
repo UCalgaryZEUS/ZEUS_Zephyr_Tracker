@@ -63,8 +63,6 @@ $connected->close ();
                 // data points
                 // [name, latitude, longitude, altitude, time, velocity, acceleration]
                 var markerData = <?php echo json_encode($data_array) ?>;
-                console.log(markerData);
-                console.log(markerData[0][1]);
                 
                 // map options
                 var options = {
