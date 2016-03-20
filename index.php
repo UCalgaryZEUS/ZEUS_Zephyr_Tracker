@@ -64,7 +64,7 @@ if ($connected->connect_errno > 0) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.css">
     <link rel="stylesheet" href="styles.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
 	<script type="text/javascript">
 	// check DOM Ready
