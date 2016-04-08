@@ -42,17 +42,19 @@ session_start();
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
 
-	<style>
-	body, html {
+	<style type="text/css">
+	body, html, #login_canvas{
 	  height: 100%;
 	  width: 100%;
 	}
 
-	div#content {
-	  width: 100%; height: 100%;
-	}
-	#view-source {
-	  position: fixed;
+    div#content {
+      height: 100%;
+      width: 100%
+    }
+
+    #view-source {
+      position: fixed;
 	  display: block;
 	  right: 0;
 	  bottom: 0;
@@ -107,27 +109,31 @@ session_start();
 	} else if (!empty($_SESSION["username"])) {
 	?>
           <a class="mdl-navigation__link" href="setuprace.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">build</i>Setup/Modify Race</a>
-          <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>
+         <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>:
 	<?php
 	}
 	?>
           <div class="mdl-layout-spacer"></div>
         </nav>
 	  </div>
-	  <main class="mdl-layout__content mdl-color--white-100">
-		<body>Username</body>
-		<form action= "logincheck.php" method= "POST">
-			<input type="text" name="username" value="" />
-			<br>
-			<br>
-			<body>Password</body>
-			<br>
-			<input type="password" name="pword" value= "" />
-			<br>
-			<br>
-			<input type="submit" value="Login" />
-		</form>
-	  </main>
+    <div style="width: 50%; height: 60%; margin-left: auto; margin_right: auto;">
+        <div id="login_canvas" class="mdl-shadow--2dp through mdl-shadow--16dp" >
+            <form action="logincheck.php" method= "POST">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="username" name="username"/>
+                    <br>
+                    <label class="mdl-textfield__label" for="username">Username</label>
+                    <br>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
+                    <label class="mdl-textfield__label" for="userpass">Password</label>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+                </div>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="material.js"></script>
   </body>
