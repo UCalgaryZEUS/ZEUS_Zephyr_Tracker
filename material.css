@@ -2948,14 +2948,16 @@ ul, ol {
 .mdl-color-text--blue-grey-800 {
   color: rgb(55,71,79) !important; }
 
+/* modified */
 .mdl-color--blue-grey-800 {
-  background-color: rgb(55,71,79) !important; }
+  background-color: rgb(38,43,51) !important; }
 
 .mdl-color-text--blue-grey-900 {
   color: rgb(38,50,56) !important; }
 
+/* modified */
 .mdl-color--blue-grey-900 {
-  background-color: rgb(38,50,56) !important; }
+  background-color: rgb(243,100,13) !important; }
 
 .mdl-color--black {
   background-color: rgb(0,0,0) !important; }
