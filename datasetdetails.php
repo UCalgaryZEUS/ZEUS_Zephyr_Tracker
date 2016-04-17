@@ -159,7 +159,7 @@ if ($connected->connect_errno > 0) {
         });
         </script>
 	<style>
-	body, html {
+	body, html, #map_canvas {
 	  height: 100%;
 	  width: 100%;
 	}
@@ -220,10 +220,10 @@ if ($connected->connect_errno > 0) {
           <div class="mdl-layout-spacer"></div>
         </nav>
 	  </div>
-	  <main class="mdl-layout__content mdl-color--white-100">
-		<div id="map_canvas" style="width: 100%; height:867px;"></div>
-	  </main>
     </div>
+	<div style="width: 100%; height: 100%;">
+		<div id="map_canvas"></div>
+	</div>
     <script src="material.js"></script>
   </body>
 </html>
