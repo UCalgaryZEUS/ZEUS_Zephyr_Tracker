@@ -43,15 +43,24 @@ session_start();
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
 
 	<style type="text/css">
-	body, html, #login_canvas{
-	  height: 100%;
-	  width: 100%;
-	}
+	/* body, html { */
+	/*   height: 100%; */
+	/*   width: 100%; */
+	/* } */
+    
+    /* main { */
+	/*   height: 100%; */
+	/*   width: 100%; */
+      /* /1* position: relative; *1/ */
+   /* /1* display:-webkit-box; *1/ */
+   /* /1*  -webkit-box-pack:center; *1/ */
+   /* /1*  -webkit-box-align:center; *1/ */
+	/* } */
 
-    div#content {
-      height: 100%;
-      width: 100%
-    }
+    /* div#content { */
+      /* height: 100%; */
+      /* width: 100% */
+    /* } */
 
     #view-source {
       position: fixed;
@@ -96,25 +105,46 @@ session_start();
           <div class="mdl-layout-spacer"></div>
         </nav>
 	  </div>
-    <div style="width: 50%; height: 60%; margin-left: auto; margin_right: auto;">
-        <div id="login_canvas" class="mdl-shadow--2dp through mdl-shadow--16dp" >
-            <form action="logincheck.php" method= "POST">
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="username" name="username"/>
-                    <br>
-                    <label class="mdl-textfield__label" for="username">Username</label>
-                    <br>
-                </div>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
-                    <label class="mdl-textfield__label" for="userpass">Password</label>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
-                </div>
-                </div>
-            </form>
+      <main class="mdl-layout__content mdl-color--white-100">
+        <div class="mdl-grid demo-content">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Technology</h4>
+                Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa consequat elit labore incididunt elit anim.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Read our features</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+            <div id="login_canvas" class="mdl-shadow--2dp through mdl-shadow--16dp" >
+                <form action="logincheck.php" method= "POST">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="username" name="username"/>
+                        <br>
+                        <label class="mdl-textfield__label" for="username">Username</label>
+                        <br>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
+                        <label class="mdl-textfield__label" for="userpass">Password</label>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+                    </div>
+                    </div>
+                </form>
         </div>
-    </div>
+        </main>
+        </main>
     <script src="material.js"></script>
   </body>
 </html>

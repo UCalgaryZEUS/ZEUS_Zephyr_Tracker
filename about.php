@@ -95,7 +95,19 @@ session_start();
         </nav>
 	  </div>
 	  <main class="mdl-layout__content mdl-color--white-100">
-		<body>TODO: What do we even do?</body>
+        <div class="mdl-grid demo-content card-spacer">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Zephyr Tracker</h4>
+                <p>The Zephyr Tracker is an online tool used by the University of Calgary's ZEUS racing team. To track mechanical information of the team racing bike (the Zephyr), we leverage the IMU/GNSS hardware and software graciously donated by Novatel. The data is acquired by the Novatel equipment and the raw information pulled by an onboard Raspberry pi. From here, the information is then sent to a remote server and analyzed by several scripts into useful information. The information is then uploaded to a database and the new information is overlayed onto the Zephyr Tracker site. The Zephyr Tracker displays the information in a meaningful way by overlaying it onto a map with data points. The system is designed to be extensible in that we can easily pipe more information (e.g. electrical status of bike and batteries) into the pi and the Zephyr Tracker site will be able to accomodate this new data.</p>
+                <p>The Zephyr Tracker site aims to provide to provide electrical and mechanical teams a new way of analyzing Zephyr performance as it races around the track.</p>
+                <h4>System Overview</h4>
+                <p>Below is a network diagram to illustrate the way that information is processed and transported between the Zephyr bike to the remote Zephyr Tracker server.</p>
+              </div>
+            </div>
+          </section>
+        </div>
 	  </main>
     </div>
     <script src="material.js"></script>
