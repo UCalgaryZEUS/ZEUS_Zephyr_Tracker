@@ -95,33 +95,41 @@ session_start();
         </nav>
 	  </div>
 	  <main class="mdl-layout__content mdl-color--white-100">
-			<table style="width:93%">
-			  <tr>
-				<th>Race Name</th>
-				<th>Location</th>
-				<th>Description</th>
-			  </tr>
-			<?php
-			$connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
-			if ($connected->connect_errno > 0) {
-				die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
-			}
+        <div class="mdl-grid demo-content card-spacer">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <table class="mdl-data-table mdl-js-data-table">
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Race Name</th>
+                  <th class="mdl-data-table__cell--non-numeric">Location</th>
+                  <th class="mdl-data-table__cell--non-numeric">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
+                if ($connected->connect_errno > 0) {
+                    die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
+                }
 
-			$result = $connected->prepare("SELECT Race.raceID, Race.racename, Race.location, Race.description From Race ORDER BY raceID DESC");
+                $result = $connected->prepare("SELECT Race.raceID, Race.racename, Race.location, Race.description From Race ORDER BY raceID DESC");
 
-			$result->execute();
-			$result->bind_result($raceID, $racename, $location, $description);
-			while ($result->fetch()) {
-			?>
-				<tr>
-				<td><a href="racedetails.php?ID=<?php echo $raceID ?>"><?php echo $racename ?></a></td>
-				<td><?php echo $location ?></td>
-				<td><?php echo $description ?></td>
-				</tr>
-				<?php
-				}
-				?>
-			</table>
+                $result->execute();
+                $result->bind_result($raceID, $racename, $location, $description);
+                while ($result->fetch()) {
+                ?>
+                    <tr>
+                    <td class="mdl-data-table__cell--non-numeric"><a href="racedetails.php?ID=<?php echo $raceID ?>"><?php echo $racename ?></a></td>
+                    <td class="mdl-data-table__cell--non-numeric"><?php echo $location ?></td>
+                    <td class="mdl-data-table__cell--non-numeric"><?php echo $description ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
+              </tbody>
+            </table>
+          </section>
+        </div>
 	  </main>
     </div>
     <script src="material.js"></script>
