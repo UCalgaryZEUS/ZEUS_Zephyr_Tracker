@@ -42,17 +42,28 @@ session_start();
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.11&sensor=false" type="text/javascript"></script>
 
-	<style>
-	body, html {
-	  height: 100%;
-	  width: 100%;
-	}
+	<style type="text/css">
+	/* body, html { */
+	/*   height: 100%; */
+	/*   width: 100%; */
+	/* } */
+    
+    /* main { */
+	/*   height: 100%; */
+	/*   width: 100%; */
+      /* /1* position: relative; *1/ */
+   /* /1* display:-webkit-box; *1/ */
+   /* /1*  -webkit-box-pack:center; *1/ */
+   /* /1*  -webkit-box-align:center; *1/ */
+	/* } */
 
-	div#content {
-	  width: 100%; height: 100%;
-	}
-	#view-source {
-	  position: fixed;
+    /* div#content { */
+      /* height: 100%; */
+      /* width: 100% */
+    /* } */
+
+    #view-source {
+      position: fixed;
 	  display: block;
 	  right: 0;
 	  bottom: 0;
@@ -72,28 +83,7 @@ session_start();
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <h6>ZEPHYR TRACKER</h6>
-          <div class="demo-avatar-dropdown">
-			<span>
-			<?php
-			if (!empty($_SESSION["username"])) {
-				echo $_SESSION["username"];
-			?>
-			</span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-			<li class="mdl-menu__item">
-				<a class="mdl-navigation__link" href="usercp.php">User Control Panel</a>
-			</li>
-            </ul>
-			<?php
-			}
-			?>
-          </div>
+            <span class="indra-title">ZEPHYR TRACKER</span>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
@@ -107,28 +97,43 @@ session_start();
 	} else if (!empty($_SESSION["username"])) {
 	?>
           <a class="mdl-navigation__link" href="setuprace.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">build</i>Setup/Modify Race</a>
-          <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>
+          <a class="mdl-navigation__link" href="usercp.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i><?php echo $_SESSION ["username"];?>: Control Panel</a>
+         <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>:
 	<?php
 	}
 	?>
           <div class="mdl-layout-spacer"></div>
         </nav>
 	  </div>
-	  <main class="mdl-layout__content mdl-color--white-100">
-		<body>Username</body>
-		<form action= "logincheck.php" method= "POST">
-			<input type="text" name="username" value="" />
-			<br>
-			<br>
-			<body>Password</body>
-			<br>
-			<input type="password" name="pword" value= "" />
-			<br>
-			<br>
-			<input type="submit" value="Login" />
-		</form>
-	  </main>
-    </div>
+      <main class="mdl-layout__content mdl-color--white-100">
+        <div class ="card-spacer">
+            <div class="mdl-card mdl-shadow--2dp wrapper">
+              <div class="mdl-card__title text-center">
+                <h2 class="mdl-card__title-text">Login</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <form action="logincheck.php" method= "POST">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="text" id="username" name="username"/>
+                    <label class="mdl-textfield__label" for="username">Username</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
+                    <label class="mdl-textfield__label" for="userpass">Password</label>
+                  </div>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border text-center">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+                      Login
+                    </button>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      Signup
+                    </a>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </main>
     <script src="material.js"></script>
   </body>
 </html>

@@ -72,28 +72,7 @@ session_start();
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <h6>ZEPHYR TRACKER</h6>
-          <div class="demo-avatar-dropdown">
-			<span>
-			<?php 
-			if (!empty($_SESSION["username"])) {
-				echo $_SESSION["username"];
-			?>
-			</span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-			<li class="mdl-menu__item">
-				<a class="mdl-navigation__link" href="usercp.php">User Control Panel</a>
-			</li>
-            </ul>
-			<?php
-			} 
-			?>
-          </div>
+            <span class="indra-title">ZEPHYR TRACKER</span>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
@@ -107,6 +86,7 @@ session_start();
 	} else if (!empty($_SESSION["username"])) {
 	?>
           <a class="mdl-navigation__link" href="setuprace.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">build</i>Setup/Modify Race</a>
+                <a class="mdl-navigation__link" href="usercp.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i><?php echo $_SESSION ["username"];?>: Control Panel</a>
           <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>
 	<?php
 	}

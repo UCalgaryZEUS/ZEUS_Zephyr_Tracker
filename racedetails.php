@@ -72,28 +72,7 @@ session_start();
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <h6>ZEPHYR TRACKER</h6>
-          <div class="demo-avatar-dropdown">
-			<span>
-			<?php 
-			if (!empty($_SESSION["username"])) {
-				echo $_SESSION["username"];
-			?>
-			</span>
-            <div class="mdl-layout-spacer"></div>
-            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <i class="material-icons" role="presentation">arrow_drop_down</i>
-              <span class="visuallyhidden">Accounts</span>
-            </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-			<li class="mdl-menu__item">
-				<a class="mdl-navigation__link" href="usercp.php">User Control Panel</a>
-			</li>
-            </ul>
-			<?php
-			} 
-			?>
-          </div>
+            <span class="indra-title">ZEPHYR TRACKER</span>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
@@ -107,6 +86,7 @@ session_start();
 	} else if (!empty($_SESSION["username"])) {
 	?>
           <a class="mdl-navigation__link" href="setuprace.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">build</i>Setup/Modify Race</a>
+                <a class="mdl-navigation__link" href="usercp.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i><?php echo $_SESSION ["username"];?>: Control Panel</a>
           <a class="mdl-navigation__link" href="logout.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_outline</i>Logout</a>
 	<?php
 	}
@@ -115,45 +95,49 @@ session_start();
         </nav>
 	  </div>
 	  <main class="mdl-layout__content mdl-color--white-100">
-		<?php
-		$connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
-			if ($connected->connect_errno > 0) {
-				die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
-			}
-			$searchID = $_GET["ID"];
-			$result = $connected->prepare("SELECT Race.racename, Race.location, Race.description From Race WHERE Race.RaceID= ?"); 	
-			$result->bind_param("i", $searchID);
-			$result->execute();
-			$result->bind_result($racename, $location, $description);
-			$result->fetch(); 
-			?>
-			<bodybold>Race Details For: <?php echo $racename ?></bodybold>
-			<br>
-			<b>Location: <?php echo $location ?></b> 
-			<br>
-			<b>Description:</b> <?php echo $description ?>
-			<br>
-			<br><br>
+        <div class="mdl-grid demo-content card-spacer">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <?php
+                $connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
+                    if ($connected->connect_errno > 0) {
+                        die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
+                    }
+                $searchID = $_GET["ID"];
+                $result = $connected->prepare("SELECT Race.racename, Race.location, Race.description From Race WHERE Race.RaceID= ?"); 	
+                $result->bind_param("i", $searchID);
+                $result->execute();
+                $result->bind_result($racename, $location, $description);
+                $result->fetch(); 
+                ?>
+                <h4>Race Details For: <?php echo $racename ?></h4>
+                <p><b>Location:</b> <?php echo $location ?></p> 
+                <p><b>Description:</b> <?php echo $description ?></p> 
 
-			<b><u>Data Sets</u></b>
-			<br>
+                <h5>Data Sets</h5>
+                <p>
+                <?php 
+                $connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
+                if ($connected->connect_errno > 0) {
+                    die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
+                }
 
-			<?php 
-			$connected = new mysqli($Database_Address, $Database_User, $Database_Password, $Database_Name);
-			if ($connected->connect_errno > 0) {
-				die('Unable to connect to database [' . mysqli_connect_errno() . ']' . mysqli_connect_error());
-			}
-
-			$result = $connected->prepare("SELECT DataSet.datasetname, DataSet.dataID From DataSet JOIN Race ON Race.RaceID = DataSet.RaceID WHERE Race.RaceID =?");
-			$result->bind_param("i", $searchID);
-			$result->execute();
-			$result->bind_result($dsname, $dataID);
-			while ($result->fetch()) {
-			?>	
-				<a href="datasetdetails.php?ID=<?php echo $dataID ?>&dsname=<?php echo $dsname ?>"><?php echo $dsname ?></a><br>
-			<?php
-			}
-			?>
+                $result = $connected->prepare("SELECT DataSet.datasetname, DataSet.dataID From DataSet JOIN Race ON Race.RaceID = DataSet.RaceID WHERE Race.RaceID =?");
+                $result->bind_param("i", $searchID);
+                $result->execute();
+                $result->bind_result($dsname, $dataID);
+                while ($result->fetch()) {
+                ?>	
+                    <a href="datasetdetails.php?ID=<?php echo $dataID ?>&dsname=<?php echo $dsname ?>"><?php echo $dsname ?></a><br>
+                <?php
+                }
+                ?>
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
 	  </main>
     </div>
     <script src="material.js"></script>
