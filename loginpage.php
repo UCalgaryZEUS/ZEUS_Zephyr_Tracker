@@ -106,26 +106,34 @@ session_start();
         </nav>
 	  </div>
       <main class="mdl-layout__content mdl-color--white-100">
-        <div class="mdl-grid demo-content">
-            <div id="login_canvas" class="mdl-shadow--2dp through mdl-shadow--16dp" >
+        <div class ="card-spacer">
+            <div class="mdl-card mdl-shadow--2dp wrapper">
+              <div class="mdl-card__title text-center">
+                <h2 class="mdl-card__title-text">Login</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
                 <form action="logincheck.php" method= "POST">
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" id="username" name="username"/>
-                        <br>
-                        <label class="mdl-textfield__label" for="username">Username</label>
-                        <br>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
-                        <label class="mdl-textfield__label" for="userpass">Password</label>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
-                    </div>
-                    </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="text" id="username" name="username"/>
+                    <label class="mdl-textfield__label" for="username">Username</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <input class="mdl-textfield__input" type="password" id="userpass" name="pword"/>
+                    <label class="mdl-textfield__label" for="userpass">Password</label>
+                  </div>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border text-center">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">
+                      Login
+                    </button>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                      Signup
+                    </a>
+                  </div>
                 </form>
+            </div>
         </div>
-        </main>
-        </main>
+    </main>
     <script src="material.js"></script>
   </body>
 </html>
